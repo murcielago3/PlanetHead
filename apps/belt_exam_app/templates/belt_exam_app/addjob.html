@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                <title>Page Title</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <style>
+        *{
+            font-family: Garamond;
+        }
+        .plans::-webkit-scrollbar {
+            width: 1em;
+        }
+
+        .plans::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+        }
+
+        .plans::-webkit-scrollbar-thumb {
+          background-color: white;
+          outline: 1px solid slategrey;
+        }
+        .container-fluid{
+            width:1600px;
+            height:1000px;
+            background-color: white;
+            color:white;
+            padding: 180px;
+
+            background-image: url("http://miriadna.com/desctopwalls/images/max/Falling-asleep-forest.jpg");
+        }
+        .joined{
+            width:400px;
+            height:400px;
+            background-color: red;
+            color:white;
+        }
+        input{
+            color:white;
+            border-radius: 5px;
+            background-color: darkgreen;
+            text-align: center;
+            width:150px;
+            height:30px;
+
+
+        }
+
+        h1{
+            color:black;
+
+
+        }
+
+        h1:hover{
+            color:blue;
+        }
+
+        h3{
+            color:white;
+            font-size: 20px;
+        }
+
+        a{
+            margin: 8px;
+            color:green;
+        }
+        a:hover{
+            color:red;
+        }
+
+        .trip_box{
+            background-color: black;
+            height:500px;
+            width:444px;
+            overflow:auto;
+            color:#white;
+            display: inline-block;
+            position: relative;
+
+        }
+
+        .trip{
+            background-color: black;
+            color:#white;
+            height:300px;
+            width:200px;
+            padding: 30px;
+            border: 4px solid red;
+            display: inline-block;
+            font-size: 9px;
+            overflow: scroll;
+
+
+        }
+
+        .trip p{
+            display: inline-block;
+        }
+
+
+        .plans{
+            background-color:black;
+            color : white;
+            height:300px;
+            width:580px;
+            position: relative;
+            border-radius: 8px;
+            font-size: 11px;
+            vertical-align: top;
+            overflow: scroll;
+            text-align: center;
+
+
+        }
+        .header{
+            background:black;
+            height:108px;
+            width:500px;
+            text-align: center;
+            font-size: 12px;
+            align-self: stretch;
+            border-radius: 8px;
+
+        }
+        .date{
+            color:red;
+            border-radius: 6px;
+            background-color: black;
+
+        }
+        .animate{
+            color:yellow;
+            height:30px;
+            width:20px;
+            position: absolute;
+        }
+
+        h1{
+            color:green;
+        }
+
+        h1:hover{
+            color:white;
+
+        }
+
+        .header{
+            background-color: black;
+            height:100px;
+            width:580px;
+            margin-bottom: 50px;
+
+        }
+
+
+
+        </style>
+
+
+    </head>
+<body>
+<div class="container-fluid">
+    <div class="header">
+    <h1>Hello {{user.first_name}} {{user.last_name}}</h1>
+
+
+    <a href="/display">Home</a>
+    <a href="/logout">Logout</a>
+    <a href="/edit">Edit my Account</a>
+    </div>
+
+
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="plans">
+
+    <form action='process{{user.id}}', method='POST'>
+        {% csrf_token %}
+        <table class= "table">
+            <thead>
+                <th> Title  </th>
+                <th> Description </th>
+                <th> Location  </th>
+            </thead>
+            <tbody>
+                <tr>
+        <td style="letter-spacing:5px;">Title: <input type='text' name='title'>  </td>
+        <td style="letter-spacing:5px;">Description: <input style=" height:100px;" type='text' name='description'> </td>
+        <td style="letter-spacing:5px;">Location: <input type='text' name='location'> </td>
+        <input type='hidden'    name='uploaded_by' value='request.session['user_id']'>
+                </tr>
+    </tbody>
+</table>
+<input style="margin-left:82px;color:black ; height:20px; "  type='submit' value='Add A Job'>
+
+    </form>
+</div>
+</div>
+</body>
+</html>

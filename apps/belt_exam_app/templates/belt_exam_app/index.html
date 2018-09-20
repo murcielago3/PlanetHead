@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+    *{
+
+        font-family:monospace;
+        box-shadow: 5px 10px;
+
+    }
+
+    body{
+        background-color:white;
+        background-image: url("https://images.pexels.com/photos/240040/pexels-photo-240040.jpeg?cs=srgb&dl=bright-daylight-environment-240040.jpg&fm=jpg");
+        background-size:contain;
+
+
+
+    }
+    input, textarea{
+        background-color:green;
+        border-radius:30px 30px 30px 30px;
+        color:white;
+        border-color: black;
+        text-align: center;
+        overflow: hidden;
+        font-size: 11px;
+        width:130px;
+
+    }
+
+    .container{
+        height:1000px;
+        display:inline-block;
+
+
+        width: 300px;
+        background-color:#181818;
+        color:#215e09;
+        position: absolute;
+        border-radius: 2px;
+
+
+    }
+
+    .header{
+        height:200px;
+        width:200px;
+        background-color: #591616;
+        color:white;
+    }
+
+    .login{
+        display:inline-block;
+        width:300px;
+        height:300px;
+        padding-right:28px;
+    }
+
+     p{
+        margin: 0px -9px 10px;
+        color:white;
+
+    }
+
+    .info{
+        width:180px;
+        height:180px;
+        color:black;
+        font-size: 13px;
+        animation-name: example;
+        animation-duration: 4s;
+        animation-iteration-count: 3;
+        position: relative;
+
+
+        background-color: #31a308;
+        display:inline-block;
+        padding:40px;
+        margin-left: 555px;
+        border-radius: 180px;
+
+
+    }
+
+
+
+
+    h1:hover{
+        color:white;
+    }
+
+    h2{
+        color:black;
+        transition: transform .2s;
+    }
+    h2:hover{
+        color:green;
+        letter-spacing: 30px;
+        transform: scale(1.5);
+    }
+
+    .hint{
+        height:100px;
+        width:220px;
+        display: inline-block;
+        background-color: green;
+        border:1px solid red;
+        text-align: center;
+        font-size: 10px;
+        overflow:inherit;
+        padding:20px;
+        margin-bottom: 10px;
+    }
+
+    .hint :hover{
+        background-color: white;
+        color:red;
+        width:260px;
+        height:110px;
+    }
+
+    @keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+/* The element to apply the animation to */
+
+
+    </style>
+
+
+    </head>
+    <body>
+
+
+
+        <div class="container">
+
+
+
+
+                            <h1  style="letter-spacing:10px";> REGISTER </h1>
+                            <h2 style="margin-left:300px; letter-spacing:5px;"> PLANET HEAD</h2>
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message %} class="{{ message }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+                        <div class="hint">
+                        <p> Please Provide An Email You Can Easily Be Contacted At In Order To Cordinate Projects Quicker, The More Efficent We Gather Up The Faster We Can See The Change <p>
+                        </div>
+
+
+
+                        <form action="register" , method ="POST">
+                            {% csrf_token %}
+            <table class="table">
+            <tr>
+                <td> <p> First Name: <input style="margin-left:65px;"  type="text" name="first_name"></p> </td>
+            </tr>
+            <tr>
+                <td> <p> Last Name: <input style="margin-left:65px;"  type="text" name="last_name"></p> </td>
+            </tr>
+            <tr>
+                <td> <p> Email: <input style="margin-left:97px;" type="text" name="email"></p> </td>
+            </tr>
+            <td> <p> Password : <input style="margin-left:67px;"  type="text" name="pw"></p> </td>
+            <tr>
+                <tr>
+                    <td> <p> Confirm Password : <input style="margin-left:14px;" type="text" name="cpw"></p> </td>
+                </tr>
+            </tr>
+        </table>
+        <input style="color:white;border-radius:0px;" type="submit" value="SIGN UP">
+                            </form>
+        <div class="login">
+
+            <form action="login" , method ="POST">
+                    {% csrf_token %}
+                <h1  style="letter-spacing:10px";> LOGIN </h1>
+
+                <table class="table">
+
+                <tr>
+                    <td> <p> Email: <input style="margin-left:97px;" type="text" name="email"></p> </td>
+                </tr>
+                <tr>
+                    <td> <p> Password : <input style="margin-left:67px;"  type="text" name="pw"></p> </td>
+                </tr>
+
+            </table>
+            <input  type="submit" value="LOG IN" name="" style="color:white;border-radius:0px;">
+            </form>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="info">
+            <p> To Connect All Enviromentally (Con · scious) Humans Under One Platform and One Plan <p>
+            </div>
+
+
+    </body>
+    <script>
+
+    function a(){
+        return 35;
+    }
+    console.log(a())
+
+    </script>
+</html>
